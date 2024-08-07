@@ -1,0 +1,43 @@
+﻿@model Employee
+
+
+
+
+<form method="post" asp-action="EmpDetails" asp-controller="EmpVerification">
+    <div class="container">
+        <div class="text-center">
+            @if (ViewBag.Status == "Success")
+            {
+                <h3 class="text-success">Verification Success</h3>
+            }
+
+            @if (ViewBag.Status == "Failed")
+            {
+                <h3 class="text-danger">Verification Failed</h3>
+            }
+        </div>
+
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <div class="row mt-3">
+            <div class="col-md-6 offset-3">
+                <label asp-for="EmployeeID" class="form-label">Employee ID</label>
+                <input type="text" asp-for="EmployeeID" class="form-control" />
+            </div>
+            <div class="col-md-6 offset-3">
+                <label asp-for="CompanyName" class="form-label">Company Name</label>
+                <input type="text" asp-for="CompanyName" class="form-control" />
+            </div>
+            <div class="col-md-6 offset-3">
+                <label asp-for="VerificationCode" class="form-label">Verification Code</label>
+                <input type="text" asp-for="VerificationCode" class="form-control" />
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6 offset-3">
+                    <input type="submit" class="btn btn-primary" value="Verify" />
+                </div>
+            </div>
+        </div>
+   
+    </div>
+
+</form>
